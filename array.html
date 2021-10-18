@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="mobill"></div>
+<div id="mobil"></div>
+<div id="mobil1"></div>
+<div id="mobil2"></div>
+<div id="buah1"></div>
+<div id="buah2"></div>
+<div id="divid"></div>
+<div id="divid2"></div>
+<div id="divid3"></div>
+<div id="divid4"></div>
+<script>
+    // mengakses data array(1)
+var mobil = ["Avanza", "Agya", "Ayla", "BMW", "Kijang"];
+var buah = ["pisang", "pepaya", "rambutan"];
+console.log(mobil[0]); 
+document.getElementById('mobil1').innerHTML=mobil[2];
+    // mengganti data array
+mobil[0]="Sedan";
+console.log(mobil[0]);
+   // Menghitung Jumlah Array
+console.log(mobil.length);
+document.getElementById('mobill').innerHTML="Jumlah Elemen Array Mobil "+mobil.length;
+    // mengakses data array(2)
+var mobilPertama = mobil[0];
+var mobilTerakhir = mobil[mobil.length -1]; 
+console.log("Mobil Pertama adalah "+mobilPertama);
+console.log("Mobil Terakhir adalah "+mobilTerakhir);
+document.getElementById('mobil1').innerHTML="Mobil Pertama adalah "+mobilPertama;
+document.getElementById('mobil2').innerHTML="Mobil Terakhir adalah "+mobilTerakhir;
+    // mengubah array menjadi data string(.toString)
+console.log("Saya telah memiliki banyak mobil antara lain "+mobil.toString()); 
+document.getElementById('buah1').innerHTML="Saya suka buah-buahan "+buah.toString();
+    // mengubah array menjadi data string(.join)  
+console.log("Saya telah memiliki banyak mobil antara lain "+mobil.join(" * ")); 
+document.getElementById('buah2').innerHTML="Saya suka buah-buahan "+buah.join(" dan ");
+    // Mengeluarkan data dari Array (.pop)
+mobil.pop();
+document.getElementById("mobil").innerHTML = mobil;
+    // Memasukkan data ke Array (.push)
+mobil.push("Fortuner"); 
+console.log("Saya telah memiliki banyak mobil antara lain "+mobil.join(" * "));
+    // Menggabungkan dua Array (.concat)
+var mobilMahal = ["Fortuner", "Lamborghini"];
+var mobilBudget = ["Avanza", "Agya", "Ayla"];
+var motor = ["Verza", "CB 150R", "MegaPro"];
+var mobil=mobilBudget.concat(mobilMahal);
+document.getElementById("divid").innerHTML = mobil;
+    // Menggabungkan tiga Array (.concat)
+var kendaraanBermotor = mobilBudget.concat(mobilMahal,motor);
+document.getElementById("divid2").innerHTML = kendaraanBermotor;
+    // Iterasi Data dari Array dengan For
+var teks, i;
+teks ="<ul>";
+for(i=0; i < mobil.length; i++)
+{
+    teks += "<li>"+mobil[i]+"</li>";
+}
+teks +="</ul>";
+document.getElementById("divid3").innerHTML = teks;  
+    // Iterasi Data dari Array dengan .forEach
+var teks, i;
+teks ="<ul>";
+mobil.forEach(fungsiMobil)
+teks += "</ul>";
+function fungsiMobil(value)
+{
+    teks += "<li>"+value+"</li>";
+}
+document.getElementById("divid4").innerHTML = teks;
+    // Iterasi menggunakan metode .map
+var nomor1 = [4, 9, 16, 25];
+var nomor2 = nomor1.map(kaliDua);
+
+function kaliDua(value,index,array) 
+{
+    return value * 2;
+
+}
+console.log(nomor2);
+</script>
+</body>
+</html>
